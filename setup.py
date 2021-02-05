@@ -7,7 +7,7 @@ packs = setuptools.find_packages()
 
 setuptools.setup(
 	name="pyzeron",
-	version="0.3.6",
+	version="1.0.0.dev2",
 	author="OmarShadowSpike",
 	author_email="omarwt92@gmail.com",
 	description="A 2D Game engine library",
@@ -15,8 +15,9 @@ setuptools.setup(
 	long_description_content_type="text/markdown",
 	url="https://github.com/OmarShadowSpike/pyzeron",
 	packages=packs,
-	install_reqs=[
-		"pygame==2.0.1"
+	install_requires=[
+		"pygame",
+		"keyboard",
 	],
 	keywords="pyzeron",
 	classifiers=[
@@ -24,5 +25,4 @@ setuptools.setup(
 		"License :: OSI Approved :: MIT License",
 		"Operating System :: OS Independent",
 	],
-	python_requires='>=3.7',
 )
