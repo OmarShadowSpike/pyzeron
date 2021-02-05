@@ -1,12 +1,9 @@
 # Importing extensions and packages
-import pygame
-import sys
-import random
-
-from pygame.math import Vector2
+import pygame as _pygame
+from pygame.math import Vector2 as _Vector2
 
 # Initializing pygame
-pygame.init()
+_pygame.init()
 
 # Classes
 # Sprite class
@@ -14,71 +11,89 @@ class Sprite():
 	def __init__(self, x, y, image):
 		self.x = x
 		self.y = y
-		self.rect = pygame.Rect(self.x, self.y, image.get_width(), image.get_height())
-		self.border = None
 		self.image = image
+		self.rect = self.image.get_rect()
 		self.visible = True
 
-	def setImage(self, image):
+	def set_image(self, image):
 		self.image = image
-
-	def setBorder(self, x, y):
-		self.border = Vector2(x, y)
 
 	def move(self, x, y):
 		self.x += x
 		self.y += y
 
 # Rect class
-class Rect(pygame.Rect):
+class Rect(_pygame.Rect):
 	def __init__(self, x, y, width, height, color=(255, 255, 255)):
 		super(Rect, self).__init__(x, y, width, height)
 
 		self.color = (255, 255, 255)
-		self.border = None
 		self.visible = True
+		self.rect = self
 
-	def setColor(self, color):
+	def set_color(self, color):
 		self.color = color
-
-	def setBorder(self, x, y):
-		self.border = Vector2(x, y)
 
 	def move(self, x, y):
 		self.x += x
 		self.y += y
 
 # Circle class
-class Circle(pygame.Rect):
+class Circle(_pygame.Rect):
 	def __init__(self, x, y, width, height, color=(255, 255, 255)):
 		super(Circle, self).__init__(x, y, width, height)
 
 		self.color = (255, 255, 255)
-		self.border = None
+		self.visible = True
+		self.rect = self
+
+	def set_color(self, color):
+		self.color = color
+
+	def move(self, x, y):
+		self.x += x
+		self.y += y
+
+# Font class
+class Font():
+	def __init__(self, font, font_size):
+		self.font = font
+		self.font_size = font_size
+		self.font_main = _pygame.font.Font(font, font_size)
+
+# Label class
+class Label():
+	def __init__(self, font, title, color, x, y, center=True):
+		self.font = font
+		self.title = title
+		self.color = color
+		self.center = center
+		self.visible = True
+		self.x = x
+		self.y = y
+		self.label = self.font.font_main.render(self.title, False, self.color)
+
+# Line class
+class Line():
+	def __init__(self, pos1, pos2, color=(255, 255, 255)):
+		self.pos1 = _Vector2(pos1[0], pos1[1])
+		self.pos2 = _Vector2(pos2[0], pos2[1])
+		self.color = color
 		self.visible = True
 
-	def setColor(self, color):
+	def move_pos1(self, x, y):
+		self.pos1.x += x
+		self.pos1.y += y
+
+	def move_pos2(self, x, y):
+		self.pos2.x += x
+		self.pos2.y += y
+
+	def set_pos1(self, pos):
+		self.pos1 = _Vector2(pos[0], pos[1])
+
+	def set_pos2(self, pos):
+		self.pos2 = _Vector2(pos[0], pos[1])
+
+	def set_color(self, color):
 		self.color = color
-
-	def setBorder(self, x, y):
-		self.border = Vector2(x, y)
-
-	def move(self, x, y):
-		self.x += x
-		self.y += y
-
-# Text class
-class Text():
-	def __init__(self, x, y, title, font=None, fontSize=40, color=(255, 255, 255)):
-		self.title = title
-		self.pos = self.x, self.y = x, y
-		self.font = None
-		self.fontSize = fontSize
-		self.color = color
-
-	def setColor(self, color):
-		self.color = color
-
-	def move(self, x, y):
-		self.x += x
-		self.y += y

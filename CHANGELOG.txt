@@ -1,0 +1,9 @@
+Pyzeron CHANGELOG
+======================================================
+Pyzeron 1.0.0.dev2
+
+- Added Changelog
+- Fix bugs
+- Line Class: 50% Done
+- Changed the key.get_pressed() function
+======================================================
