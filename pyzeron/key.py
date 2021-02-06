@@ -5,6 +5,6 @@ import keyboard as _keyboard
 # Initializing pygame
 _pygame.init()
 
-# Checking if a key is held
+# Checking if a key is pressed
 def get_pressed(key):
 	return _keyboard.is_pressed(key)

@@ -6,23 +6,57 @@ I will release the version 1.0.0 this month or the next month.
 
 ---
 
-## Installation
-**WARNING**
-Linux users you have to find a way to install this package, because I can't find any way to install it on linux.
+## Pip Installation
+If you dont have pip already all you have to do is download the **Python Installer** again on the [Python Website](https://www.python.org/).
+After you download the python installer open it and click on **Modify**.
+Then check the box of the pip and hit next and install.
 
+---
+
+## Pyzeron Installation
 Please find which **Operating System** your using.
 
 ### Windows
-Open your command prompt and type:
-```python
+If you want this version open your command prompt and type:
+```
+pip install pyzeron==1.0.0.dev3
+```
+Else type:
+```
 pip install pyzeron
 ```
 
 ### Mac
-Open your Spotlight search bar and type **Terminal** after that type:
-```python
+If you want this version open your Spotlight search bar and type **Terminal** after that type:
+```
+pip3 install pyzeron==1.0.0.dev3
+```
+Else type:
+```
 pip3 install pyzeron
 ```
+
+### Linux
+If you want this version open any **Terminal** and type:
+```
+sudo apt-get install python-pyzeron==1.0.0.dev3
+```
+Else type:
+```
+sudo apt-get install python-pyzeron
+```
+
+---
+
+## Changelog
+The changelog can be seen in [here](https://github.com/OmarShadowSpike/pyzeron/blob/main/CHANGELOG.txt)
+But if you want the current version changelog here it is.
+
+		Pyzeron 1.0.0.dev3
+		- Added Button Class
+		- Bug fixes
+		- README Improvements
+		- Line Class: Complete!
 
 ---
 

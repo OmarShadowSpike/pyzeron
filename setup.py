@@ -7,7 +7,7 @@ packs = setuptools.find_packages()
 
 setuptools.setup(
 	name="pyzeron",
-	version="1.0.0.dev2",
+	version="1.0.0.dev3",
 	author="OmarShadowSpike",
 	author_email="omarwt92@gmail.com",
 	description="A 2D Game engine library",

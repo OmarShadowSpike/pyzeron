@@ -3,7 +3,14 @@ Pyzeron CHANGELOG
 Pyzeron 1.0.0.dev2
 
 - Added Changelog
-- Fix bugs
-- Line Class: 50% Done
+- Bug fixes
+- Added Line Class: 50% Done
 - Changed the key.get_pressed() function
+======================================================
+Pyzeron 1.0.0.dev3
+
+- Added Button Class
+- Bug fixes
+- README Improvements
+- Line Class: Complete!
 ======================================================

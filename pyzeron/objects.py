@@ -1,6 +1,7 @@
 # Importing extensions and packages
 import pygame as _pygame
 from pygame.math import Vector2 as _Vector2
+from . import mouse as _mouse
 
 # Initializing pygame
 _pygame.init()
@@ -53,6 +54,35 @@ class Circle(_pygame.Rect):
 	def move(self, x, y):
 		self.x += x
 		self.y += y
+
+# Button class
+class Button():
+	def __init__(self, x, y, width, height, color, event=None):
+		self.x = x
+		self.y = y
+		self.width = width
+		self.height = height
+		self.color = color
+		self.hover_color = (color[0]+20, color[1]+20, color[2]+20)
+		self.event = event
+		self.visible = True
+
+	def set_color(self, color):
+		self.color = color
+
+	def set_hover_color(self, color):
+		self.hover_color = color
+
+	def set_event(self, evt):
+		self.event = evt
+
+	def _get_draw(self):
+		if self.x+self.width > _mouse.get_position()[0] > self.x and self.y+self.height > _mouse.get_position()[1] > self.y:
+			if _mouse.get_pressed("left"):
+				if self.event != None:
+					self.event()
+					return False
+			return True
 
 # Font class
 class Font():

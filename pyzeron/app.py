@@ -2,7 +2,7 @@
 import pygame as _pygame
 import sys as _sys
 
-from .objects import Rect, Circle, Sprite, Label, Line
+from .objects import Rect, Circle, Sprite, Label, Line, Button
 from .misc import *
 
 # Initializing pygame
@@ -17,6 +17,7 @@ class App():
 		self.sprites = []
 		self.rects = []
 		self.circles = []
+		self.buttons = []
 		self.texts = []
 		self.lines = []
 
@@ -63,6 +64,10 @@ class App():
 	def _draw_circle(self, circle):
 		self.circles.append(circle)
 
+	# Drawing buttons in the loop
+	def _draw_button(self, button):
+		self.buttons.append(button)
+
 	# Drawing texts in the loop
 	def _draw_text(self, txt):
 		self.texts.append(txt)
@@ -79,6 +84,8 @@ class App():
 			self._draw_rect(obj)
 		elif type(obj) == Circle:
 			self._draw_circle(obj)
+		elif type(obj) == Button:
+			self._draw_button(obj)
 		elif type(obj) == Label:
 			self._draw_text(obj)
 		elif type(obj) == Line:
@@ -87,12 +94,7 @@ class App():
 	# Drawing an entire list of objects
 	def draw_list(self, list):
 		for obj in list:
-			if type(obj) == Sprite:
-				self._draw_sprite(obj)
-			elif type(obj) == Rect:
-				self._draw_rect(obj)
-			elif type(obj) == Circle:
-				self._draw_circle(obj)
+			self.draw(obj)
 
 	# Running the application
 	def run(self, fps=60, loop=None, debug=False):
@@ -137,6 +139,14 @@ class App():
 			for circle in self.circles:
 				if circle.visible:
 					_pygame.draw.ellipse(self.window, circle.color, circle)
+			for button in self.buttons:
+				if button.visible:
+					button_rect = [button.x, button.x, button.width, button.height]
+					
+					if button._get_draw():
+						_pygame.draw.rect(self.window, button.hover_color, button_rect)
+					else:
+						_pygame.draw.rect(self.window, button.color, button_rect)
 			for txt in self.texts:
 				if txt.visible:
 					if txt.center:

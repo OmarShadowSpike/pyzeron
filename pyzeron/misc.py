@@ -53,3 +53,7 @@ def collide_mask_check(left, right):
 	except AttributeError:
 		rightmask = _pygame.mask.from_surface(right.image)
 	return leftmask.overlap(rightmask, (xoffset, yoffset))
+
+# Button Event Decorator
+def button_event():
+	pass
